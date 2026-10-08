@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipin5k | Your MVP in 5 weeks for $5k</title>
+<meta name="theme-color" content="#2B4BFF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shipin5k | Your MVP in 5 weeks for $5k">
+<meta property="og:description" content="We scope, design and build your MVP in five weeks for a fixed $5k, paid $1K a week. Cancel anytime.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%232B4BFF%22/%3E%3Ctext x=%2232%22 y=%2246%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22%3E5%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Shipin5k builds your MVP in 5 weeks for $5k. Pay $1K a week, get weekly updates, and launch in week five.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Kalam:wght@400&display=swap">
+<style>
+/* Layout: a single shipping schedule. The 5-week build ledger is the hero object; every section below reads like a page from the same project plan. */
+:root{
+  --paper:#F3F5F7;
+  --surface:#FFFFFF;
+  --ink:#0E1726;
+  --muted:#556074;
+  --line:#D9DFE7;
+  --accent:#2B4BFF;
+  --accent-ink:#FFFFFF;
+  --signal:#FF6A2B;
+  --done:#14915E;
+  --tint:#E6EAFF;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+  --hand:"Kalam", "Comic Sans MS", cursive;
+  --r:14px;
+  --wrap:1160px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B111C; --surface:#121A28; --ink:#EEF2F8; --muted:#9AA6BA; --line:#243044;
+    --accent:#6F86FF; --accent-ink:#0B111C; --signal:#FF8A57; --done:#3CC98E; --tint:#1A2340;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B111C; --surface:#121A28; --ink:#EEF2F8; --muted:#9AA6BA; --line:#243044;
+  --accent:#6F86FF; --accent-ink:#0B111C; --signal:#FF8A57; --done:#3CC98E; --tint:#1A2340;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hand{font-family:var(--hand);color:var(--signal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--body);font-weight:600;font-size:1rem;text-decoration:none;padding:.85em 1.3em;border-radius:999px;border:1.5px solid transparent;transition:transform .15s ease, background .15s ease}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:1em;height:1em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.03em}
+.logo b{color:var(--accent)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{padding:.55em 1.05em;font-size:.92rem}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(48px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5rem);font-weight:800}
+.hero h1 .num{color:var(--accent)}
+.hero .lede{font-size:1.2rem;color:var(--muted);max-width:34ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.92rem;color:var(--muted)}
+.hero .facts span{display:inline-flex;align-items:center;gap:8px}
+.hero .facts span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--done)}
+
+/* the ship schedule card */
+.schedule{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 24px 60px -30px color-mix(in srgb,var(--ink) 35%,transparent);position:relative;min-width:0}
+.schedule header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
+.schedule header h2{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.schedule .tag{font-family:var(--mono);font-size:.72rem;padding:.3em .7em;border-radius:999px;background:var(--tint);color:var(--accent);white-space:nowrap}
+.weeks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.week{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;font-variant-numeric:tabular-nums}
+.week .w{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.week .bar{height:34px;border-radius:9px;background:var(--paper);border:1px solid var(--line);position:relative;overflow:hidden}
+.week .fill{position:absolute;inset:0 auto 0 0;width:var(--p);background:var(--accent);border-radius:8px;display:flex;align-items:center;padding-inline:10px;color:var(--accent-ink);font-size:.8rem;font-weight:600;white-space:nowrap;animation:grow 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 120ms)}
+.week.launch .fill{background:var(--signal);color:#fff}
+.week .pay{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+@keyframes grow{from{width:12%}to{width:var(--p)}}
+.schedule footer{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:baseline;font-variant-numeric:tabular-nums}
+.schedule footer strong{font-family:var(--display);font-size:1.8rem;letter-spacing:-.02em}
+.schedule .note{position:absolute;right:18px;bottom:-30px;font-size:1.15rem;transform:rotate(-4deg)}
+
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.schedule .note{position:static;display:block;margin-top:10px;transform:none}}
+
+/* quote */
+.quote{border-block:1px solid var(--line);background:var(--surface)}
+.quote .wrap{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 28px;padding-block:36px;text-align:center}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.3rem);letter-spacing:-.02em}
+.quote cite{font-style:normal;color:var(--muted);font-family:var(--mono);font-size:.82rem}
+
+/* sections */
+section.block{padding-block:clamp(64px,9vw,112px)}
+.sec-head{display:flex;flex-direction:column;gap:14px;max-width:640px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:800}
+.sec-head p{color:var(--muted);font-size:1.12rem}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--ink);counter-reset:s}
+.step{padding:22px 20px 0 0;display:flex;flex-direction:column;gap:10px;position:relative;min-width:0}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:500}
+.step::after{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.step:last-child::after{background:var(--signal);border-color:var(--signal)}
+.step h3{font-size:1.2rem;font-weight:700}
+.step p{color:var(--muted);font-size:.98rem}
+@media (max-width:900px){
+  .steps{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);gap:28px;padding-left:24px}
+  .step{padding:0}
+  .step::after{top:4px;left:-32px}
+}
+
+/* pricing */
+.pricing{background:var(--surface);border-block:1px solid var(--line)}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.price-card{border:1px solid var(--line);border-radius:20px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:22px;background:var(--paper);min-width:0}
+.price-card.main{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.price-card.main .muted{color:color-mix(in srgb,var(--paper) 70%,var(--ink))}
+.price{font-family:var(--display);font-weight:800;font-size:clamp(3.4rem,8vw,5rem);letter-spacing:-.04em;line-height:1}
+.price small{font-size:1.1rem;font-weight:600;letter-spacing:0;margin-left:6px}
+.ledger{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.96rem}
+.ledger td{padding:10px 0;border-bottom:1px solid color-mix(in srgb,var(--paper) 18%,var(--ink))}
+.ledger td:last-child{text-align:right;font-family:var(--mono)}
+.ledger tr:last-child td{border-bottom:0;font-weight:600}
+.price-card.main .btn-primary{background:var(--accent);color:var(--accent-ink);align-self:flex-start}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.checks svg{width:22px;height:22px;margin-top:2px}
+.checks .yes svg{color:var(--done)}
+.checks .no svg{color:var(--signal)}
+.price-card h3{font-size:1.3rem}
+.sub{display:flex;flex-direction:column;gap:14px}
+.sub + .sub{padding-top:22px;border-top:1px solid var(--line)}
+.fine{font-size:.92rem;color:var(--muted)}
+@media (max-width:860px){.price-grid{grid-template-columns:1fr}}
+
+/* why */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why{display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--line);min-width:0}
+.why .ico{width:44px;height:44px;border-radius:12px;background:var(--tint);color:var(--accent);display:grid;place-items:center}
+.why .ico svg{width:22px;height:22px}
+.why h3{font-size:1.3rem;font-weight:700}
+.why p{color:var(--muted)}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr}}
+
+/* work */
+.work{background:var(--surface);border-block:1px solid var(--line)}
+.clients{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.client{border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:16px;text-decoration:none;background:var(--paper);transition:border-color .15s ease, transform .15s ease;min-width:0}
+a.client:hover{border-color:var(--accent);transform:translateY(-3px)}
+.client .mark{font-family:var(--display);font-weight:800;font-size:1.7rem;letter-spacing:-.03em}
+.client .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.88rem;color:var(--muted)}
+.status{font-family:var(--mono);font-size:.72rem;padding:.3em .7em;border-radius:999px;white-space:nowrap}
+.status.live{background:color-mix(in srgb,var(--done) 16%,transparent);color:var(--done)}
+.status.build{background:color-mix(in srgb,var(--signal) 16%,transparent);color:var(--signal)}
+.past{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:.45em 1em;font-size:.94rem;background:var(--paper)}
+@media (max-width:860px){.clients{grid-template-columns:1fr}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:start}
+.faq-grid .sec-head{position:sticky;top:96px;margin-bottom:0}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:600;font-size:1.1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:transform .2s ease, background .2s ease}
+.faq summary .pm svg{width:14px;height:14px}
+.faq details[open] summary .pm{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.faq .ans{padding:0 48px 24px 0;color:var(--muted);max-width:62ch}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq-grid .sec-head{position:static}.faq .ans{padding-right:0}}
+
+/* closing cta */
+.closer{padding-block:clamp(56px,8vw,96px)}
+.closer-box{background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.3fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
+.closer-box h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800}
+.closer-box p{margin-top:14px;font-size:1.12rem;opacity:.85;max-width:44ch}
+.closer-box .btn{background:var(--accent-ink);color:var(--accent);font-size:1.05rem;padding:1em 1.6em}
+.closer-box .btn:hover{transform:translateY(-2px)}
+.closer-box .big5{position:absolute;right:-20px;bottom:-90px;font-family:var(--display);font-weight:800;font-size:22rem;line-height:1;opacity:.08;pointer-events:none;letter-spacing:-.06em}
+@media (max-width:760px){.closer-box{grid-template-columns:1fr}}
+
+footer.site{border-top:1px solid var(--line);padding-block:32px}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;color:var(--muted);font-size:.92rem}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:var(--ink)}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".15"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M7.5 12.5l3 3 6-6.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".15"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a href="#top" class="logo">shipin<b>5k</b></a>
+    <ul>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-primary" href="https://cal.com/sathithyayogi/mvp-discussion" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">MVP development studio</span>
+        <h1>Your MVP, live in <span class="num">5&nbsp;weeks</span> for <span class="num">$5k</span>.</h1>
+        <p class="lede">Struggling to hire developers, or finding agency quotes out of reach? We scope, design and build your MVP in five weeks, then hand it over ready to launch.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="https://cal.com/sathithyayogi/mvp-discussion" target="_blank" rel="noopener">Book a discovery call <svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#process">See how it works</a>
+        </div>
+        <div class="facts">
+          <span>Fixed price</span><span>Weekly payments</span><span>Cancel anytime</span>
+        </div>
+      </div>
+
+      <aside class="schedule" aria-label="Sample 5-week build schedule">
+        <header>
+          <h2>Your build schedule</h2>
+          <span class="tag">5 weeks · fixed scope</span>
+        </header>
+        <ol class="weeks">
+          <li class="week" style="--i:0;--p:100%"><span class="w">WK 1</span><span class="bar"><span class="fill">Scope &amp; UI in Figma</span></span><span class="pay">$1,000</span></li>
+          <li class="week" style="--i:1;--p:100%"><span class="w">WK 2</span><span class="bar"><span class="fill">Core features</span></span><span class="pay">$1,000</span></li>
+          <li class="week" style="--i:2;--p:100%"><span class="w">WK 3</span><span class="bar"><span class="fill">Core features</span></span><span class="pay">$1,000</span></li>
+          <li class="week" style="--i:3;--p:100%"><span class="w">WK 4</span><span class="bar"><span class="fill">Polish &amp; testing</span></span><span class="pay">$1,000</span></li>
+          <li class="week launch" style="--i:4;--p:100%"><span class="w">WK 5</span><span class="bar"><span class="fill">Launch 🚀</span></span><span class="pay">$1,000</span></li>
+        </ol>
+        <footer>
+          <span class="eyebrow">Total</span>
+          <strong>$5,000</strong>
+        </footer>
+        <span class="note hand">← no surprise invoices</span>
+      </aside>
+    </div>
+  </section>
+
+  <div class="quote">
+    <div class="wrap">
+      <blockquote>“Do things that don’t scale.”</blockquote>
+      <cite>Paul Graham, Y Combinator</cite>
+    </div>
+  </div>
+
+  <section class="block" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From first call to launch in five steps</h2>
+        <p>One short call, one small advance, and then you watch it get built.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><h3>Discovery call</h3><p>Walk us through your idea, your users and what success looks like.</p></li>
+        <li class="step"><h3>Scope &amp; prioritise</h3><p>We break the project down and pick the features that fit in five weeks.</p></li>
+        <li class="step"><h3>$1K advance</h3><p>Send the advance. That is all we need from you to get going.</p></li>
+        <li class="step"><h3>Build with weekly updates</h3><p>Work starts and you get regular progress updates and a live project board.</p></li>
+        <li class="step"><h3>Launch</h3><p>Your MVP goes live at the end of week five.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block pricing" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>One price. Paid as we ship.</h2>
+        <p>No retainers or hourly billing. You pay $1K a week, and you can stop at any point without owing the rest.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card main">
+          <div>
+            <span class="eyebrow muted">Complete MVP</span>
+            <div class="price">$5,000<small>/ 5 weeks</small></div>
+          </div>
+          <table class="ledger">
+            <tbody>
+              <tr><td>Advance, before kickoff</td><td>$1,000</td></tr>
+              <tr><td>End of week 1</td><td>$1,000</td></tr>
+              <tr><td>End of week 2</td><td>$1,000</td></tr>
+              <tr><td>End of week 3</td><td>$1,000</td></tr>
+              <tr><td>End of week 4</td><td>$1,000</td></tr>
+              <tr><td>Total</td><td>$5,000</td></tr>
+            </tbody>
+          </table>
+          <p class="muted fine">No refunds, but you can cancel anytime and you won’t owe the remaining balance. Work begins one week after the advance.</p>
+          <a class="btn btn-primary" href="https://cal.com/sathithyayogi/mvp-discussion" target="_blank" rel="noopener">Book a discovery call <svg><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <div class="price-card">
+          <div class="sub">
+            <h3>What’s included</h3>
+            <ul class="checks">
+              <li class="yes"><svg><use href="#i-check"/></svg><span>Feature scoping and prioritisation</span></li>
+              <li class="yes"><svg><use href="#i-check"/></svg><span>UI designed in Figma, or built from your existing designs</span></li>
+              <li class="yes"><svg><use href="#i-check"/></svg><span>Development in React, Next.js and Node.js (other stacks on request)</span></li>
+              <li class="yes"><svg><use href="#i-check"/></svg><span>A Git project board your team can follow</span></li>
+              <li class="yes"><svg><use href="#i-check"/></svg><span>Progress updates every 4 days on WhatsApp or email</span></li>
+              <li class="yes"><svg><use href="#i-check"/></svg><span>A launched MVP at the end of week five</span></li>
+            </ul>
+          </div>
+          <div class="sub">
+            <h3>Usually not a fit</h3>
+            <ul class="checks">
+              <li class="no"><svg><use href="#i-x"/></svg><span>Heavy backend systems</span></li>
+              <li class="no"><svg><use href="#i-x"/></svg><span>Animation-heavy interfaces</span></li>
+              <li class="no"><svg><use href="#i-x"/></svg><span>Several complex modules at once</span></li>
+            </ul>
+            <p class="fine">Bigger project? Book a call anyway. We’ll share a timeline and price that fits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Why founders choose us</span>
+        <h2>Test the idea before you bet the budget</h2>
+      </div>
+      <div class="why-grid">
+        <article class="why">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>
+          <h3>Lower risk, faster answers</h3>
+          <p>An MVP lets you put your idea in front of real users, gather feedback and refine it before committing serious money.</p>
+        </article>
+        <article class="why">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <h3>Built for five-week launches</h3>
+          <p>We only do one thing: high-quality MVPs delivered in five weeks. The process is tuned for speed without cutting corners.</p>
+        </article>
+        <article class="why">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M3 9h5M3 14h5"/></svg></span>
+          <h3>Full visibility</h3>
+          <p>Follow every task on a shared project board and get an update every four days. You always know where your build stands.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block work" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Clients</span>
+        <h2>Products we’ve shipped</h2>
+        <p>Demos and references from founders and CXOs are available on a call.</p>
+      </div>
+      <div class="clients">
+        <a class="client" href="https://zeonhq.com" target="_blank" rel="noopener">
+          <span class="mark">Zeon</span>
+          <span class="meta"><span>zeonhq.com ↗</span><span class="status live">Live</span></span>
+        </a>
+        <a class="client" href="https://www.qvstravels.com" target="_blank" rel="noopener">
+          <span class="mark">QVS Tours &amp; Travels</span>
+          <span class="meta"><span>qvstravels.com ↗</span><span class="status live">Live</span></span>
+        </a>
+        <div class="client">
+          <span class="mark">Carb Control</span>
+          <span class="meta"><span>Currently building</span><span class="status build">In progress</span></span>
+        </div>
+      </div>
+      <div class="past">
+        <span class="eyebrow">Also built</span>
+        <span class="chip">AI-based database monitoring system</span>
+        <span class="chip">AI customer support platform</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap faq-grid">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions founders ask us</h2>
+        <p>Still unsure? Bring your questions to a free discovery call.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>What tech stack do you use?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">Mostly React.js, Next.js and Node.js. If your project needs a different stack, we can work with that too.</p></details>
+        <details><summary>How will you track the work?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">We run the project on a Git project board that your team can access, and send you a progress update every four days on WhatsApp or email.</p></details>
+        <details><summary>Are there any refunds if I don’t like the service?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">We don’t offer refunds. You can cancel at any time, though, and you won’t owe the remaining balance.</p></details>
+        <details><summary>Who will design the UI for the application?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">We design the UI in Figma. If you already have designs, we’ll build from those.</p></details>
+        <details><summary>Is there any work you won’t take?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">We usually don’t take projects with heavy backends, extensive animations or several complex modules. If you’re not sure, book a call and we’ll talk it through.</p></details>
+        <details><summary>What if our project can’t be done in 5 weeks for $5K?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">We still take larger projects. After the discovery call we’ll share a timeline and pricing that fits the scope.</p></details>
+        <details><summary>When will you start the work?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">Work starts one week after we receive the advance payment.</p></details>
+        <details><summary>What have you built before?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">Past projects include an AI-based database monitoring system and an AI customer support platform, alongside the client products above.</p></details>
+        <details><summary>Can we see previous projects and talk to past clients?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">Yes. On a call we can show demos and connect you with founders and CXOs we’ve worked with.</p></details>
+        <details><summary>How do we pay the $5K?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p class="ans">A $1K advance to begin, then $1K each week. That totals $5K across the five weeks.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closer">
+    <div class="wrap">
+      <div class="closer-box">
+        <span class="big5" aria-hidden="true">5</span>
+        <div>
+          <h2>Ready to ship your idea?</h2>
+          <p>Book a free discovery call. We’ll tell you what fits in five weeks and what it takes to launch.</p>
+        </div>
+        <a class="btn" href="https://cal.com/sathithyayogi/mvp-discussion" target="_blank" rel="noopener">Book a call <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© Shipin5k. Get your MVP in weeks, not months.</span>
+    <span><a href="#process">Process</a> · <a href="#pricing">Pricing</a> · <a href="#faq">FAQ</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
